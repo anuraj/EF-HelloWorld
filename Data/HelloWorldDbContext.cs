@@ -12,11 +12,11 @@ public class HelloWorldDbContext : DbContext
     {
     }
     public DbSet<Product> Products { get; set; } = null!;
-    // protected override void OnModelCreating(ModelBuilder modelBuilder)
-    // {
-    //     modelBuilder.Entity<Product>().HasData(new Product { Id = 1, Name = "Product 1", Description = "Description 1" });
-    //     modelBuilder.Entity<Product>().HasData(new Product { Id = 2, Name = "Product 2", Description = "Description 2" });
-    // }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Product>().HasData(new Product { Id = 1, Name = "Product 1", Description = "Description 1" });
+        modelBuilder.Entity<Product>().HasData(new Product { Id = 2, Name = "Product 2", Description = "Description 2" });
+    }
 }
 
 public class Product
