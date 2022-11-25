@@ -27,4 +27,9 @@ jobs:
             dotnet new tool-manifest
             dotnet tool install dotnet-ef
       - name: Build dotnet script
-        run: dotnet ef migrations script -i -o ${{env.DOTNET_ROOT}}/script${{env.GITHUB_RUN_NUMBER}}.sql
+        run: dotnet ef migrations script -i -o ${{env.DOTNET_ROOT}}/script.sql
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.1
+        with:
+          name: script.sql
+          path: ${{env.DOTNET_ROOT}}/script.sql
