@@ -12,6 +12,7 @@ public class HelloWorldDbContext : DbContext
     {
     }
     public DbSet<Product> Products { get; set; } = null!;
+    public DbSet<NewProduct> NewProducts { get; set; } = null!;
     // protected override void OnModelCreating(ModelBuilder modelBuilder)
     // {
     //     modelBuilder.Entity<Product>().HasData(new Product { Id = 1, Name = "Product 1", Description = "Description 1" });
@@ -25,4 +26,11 @@ public class Product
     public string? Name { get; set; }
     // public string? Description { get; set; }
     public bool IsActive { get; set; }
+}
+
+public class NewProduct
+{
+    public int Id { get; set; }
+    public string? Name { get; set; }
+    public string? Description { get; set; }
 }
